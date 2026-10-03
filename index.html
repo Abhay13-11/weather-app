@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Weather app using the OpenWeatherMap Current Weather API">
+    <title>Weather Desk — OpenWeatherMap</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <div>
+                <p class="kicker">WEEK 03 / JAVASCRIPT + APIs</p>
+                <h1>Weather Desk<span>.</span></h1>
+            </div>
+            <div class="status">
+                <span class="status-dot"></span>
+                LIVE DATA
+            </div>
+        </header>
+
+        <section class="search-panel">
+            <div class="panel-label">LOOK UP A CITY</div>
+
+            <form id="weatherForm" class="search-form">
+                <label class="sr-only" for="cityInput">City name</label>
+                <input
+                    id="cityInput"
+                    type="text"
+                    placeholder="e.g. Greater Noida"
+                    autocomplete="off"
+                    required
+                >
+                <button type="submit">Search Weather</button>
+            </form>
+
+            <div class="api-row">
+                <label for="apiKeyInput">OpenWeather API key</label>
+                <input
+                    id="apiKeyInput"
+                    type="password"
+                    placeholder="Paste your API key here"
+                    autocomplete="off"
+                >
+                <button id="saveKeyBtn" class="secondary-btn" type="button">Save Key</button>
+            </div>
+
+            <p class="hint">
+                Your key is stored only in this browser using localStorage.
+                You need an OpenWeather API key for the request to work.
+            </p>
+        </section>
+
+        <section id="message" class="message" aria-live="polite">
+            Enter your API key, type a city, and search.
+        </section>
+
+        <section id="weatherCard" class="weather-card hidden">
+            <div class="weather-main">
+                <div>
+                    <p class="kicker">CURRENT CONDITIONS</p>
+                    <h2 id="locationName">—</h2>
+                    <p id="condition" class="condition">—</p>
+                </div>
+
+                <div class="weather-icon-wrap">
+                    <img id="weatherIcon" src="" alt="" class="weather-icon hidden">
+                    <div id="weatherFallbackIcon" class="fallback-icon">☼</div>
+                </div>
+            </div>
+
+            <div class="temperature-row">
+                <span id="temperature">--</span><sup>°C</sup>
+            </div>
+
+            <p id="feelsLike" class="feels-like">Feels like —°C</p>
+
+            <div class="metrics">
+                <article class="metric">
+                    <span>Humidity</span>
+                    <strong id="humidity">--%</strong>
+                </article>
+
+                <article class="metric">
+                    <span>Wind</span>
+                    <strong id="wind">-- m/s</strong>
+                </article>
+
+                <article class="metric">
+                    <span>Pressure</span>
+                    <strong id="pressure">-- hPa</strong>
+                </article>
+
+                <article class="metric">
+                    <span>Visibility</span>
+                    <strong id="visibility">-- km</strong>
+                </article>
+            </div>
+
+            <div class="weather-footer">
+                <span id="updatedAt">Updated —</span>
+                <span id="country">—</span>
+            </div>
+        </section>
+
+        <footer>
+            <span>Built with JavaScript · Fetch · JSON</span>
+            <a href="https://openweathermap.org/api" target="_blank" rel="noopener noreferrer">
+                OpenWeather API docs ↗
+            </a>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
